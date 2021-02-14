@@ -24,56 +24,16 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetBooks_QNAME = new QName("http://wharehousews.softeng.sapienza.it/", "getBooks");
-    private final static QName _AddBookResponse_QNAME = new QName("http://wharehousews.softeng.sapienza.it/", "addBookResponse");
-    private final static QName _AddBook_QNAME = new QName("http://wharehousews.softeng.sapienza.it/", "addBook");
-    private final static QName _GetBooksResponse_QNAME = new QName("http://wharehousews.softeng.sapienza.it/", "getBooksResponse");
+    private final static QName _ClassNotFoundException_QNAME = new QName("http://warehousews.softeng.sapienza.it/", "ClassNotFoundException");
+    private final static QName _GetBookSoap_QNAME = new QName("http://warehousews.softeng.sapienza.it/", "getBookSoap");
+    private final static QName _GetBookSoapResponse_QNAME = new QName("http://warehousews.softeng.sapienza.it/", "getBookSoapResponse");
+    private final static QName _SQLException_QNAME = new QName("http://warehousews.softeng.sapienza.it/", "SQLException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: soap
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link GetBooks }
-     * 
-     */
-    public GetBooks createGetBooks() {
-        return new GetBooks();
-    }
-
-    /**
-     * Create an instance of {@link AddBookResponse }
-     * 
-     */
-    public AddBookResponse createAddBookResponse() {
-        return new AddBookResponse();
-    }
-
-    /**
-     * Create an instance of {@link AddBook }
-     * 
-     */
-    public AddBook createAddBook() {
-        return new AddBook();
-    }
-
-    /**
-     * Create an instance of {@link GetBooksResponse }
-     * 
-     */
-    public GetBooksResponse createGetBooksResponse() {
-        return new GetBooksResponse();
-    }
-
-    /**
-     * Create an instance of {@link BookMap }
-     * 
-     */
-    public BookMap createBookMap() {
-        return new BookMap();
     }
 
     /**
@@ -85,47 +45,87 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BookEntry }
+     * Create an instance of {@link Book.MapSellers }
      * 
      */
-    public BookEntry createBookEntry() {
-        return new BookEntry();
+    public Book.MapSellers createBookMapSellers() {
+        return new Book.MapSellers();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetBooks }{@code >}}
+     * Create an instance of {@link GetBookSoapResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://wharehousews.softeng.sapienza.it/", name = "getBooks")
-    public JAXBElement<GetBooks> createGetBooks(GetBooks value) {
-        return new JAXBElement<GetBooks>(_GetBooks_QNAME, GetBooks.class, null, value);
+    public GetBookSoapResponse createGetBookSoapResponse() {
+        return new GetBookSoapResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddBookResponse }{@code >}}
+     * Create an instance of {@link SQLException }
      * 
      */
-    @XmlElementDecl(namespace = "http://wharehousews.softeng.sapienza.it/", name = "addBookResponse")
-    public JAXBElement<AddBookResponse> createAddBookResponse(AddBookResponse value) {
-        return new JAXBElement<AddBookResponse>(_AddBookResponse_QNAME, AddBookResponse.class, null, value);
+    public SQLException createSQLException() {
+        return new SQLException();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddBook }{@code >}}
+     * Create an instance of {@link GetBookSoap }
      * 
      */
-    @XmlElementDecl(namespace = "http://wharehousews.softeng.sapienza.it/", name = "addBook")
-    public JAXBElement<AddBook> createAddBook(AddBook value) {
-        return new JAXBElement<AddBook>(_AddBook_QNAME, AddBook.class, null, value);
+    public GetBookSoap createGetBookSoap() {
+        return new GetBookSoap();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetBooksResponse }{@code >}}
+     * Create an instance of {@link ClassNotFoundException }
      * 
      */
-    @XmlElementDecl(namespace = "http://wharehousews.softeng.sapienza.it/", name = "getBooksResponse")
-    public JAXBElement<GetBooksResponse> createGetBooksResponse(GetBooksResponse value) {
-        return new JAXBElement<GetBooksResponse>(_GetBooksResponse_QNAME, GetBooksResponse.class, null, value);
+    public ClassNotFoundException createClassNotFoundException() {
+        return new ClassNotFoundException();
+    }
+
+    /**
+     * Create an instance of {@link Book.MapSellers.Entry }
+     * 
+     */
+    public Book.MapSellers.Entry createBookMapSellersEntry() {
+        return new Book.MapSellers.Entry();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ClassNotFoundException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://warehousews.softeng.sapienza.it/", name = "ClassNotFoundException")
+    public JAXBElement<ClassNotFoundException> createClassNotFoundException(ClassNotFoundException value) {
+        return new JAXBElement<ClassNotFoundException>(_ClassNotFoundException_QNAME, ClassNotFoundException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetBookSoap }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://warehousews.softeng.sapienza.it/", name = "getBookSoap")
+    public JAXBElement<GetBookSoap> createGetBookSoap(GetBookSoap value) {
+        return new JAXBElement<GetBookSoap>(_GetBookSoap_QNAME, GetBookSoap.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetBookSoapResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://warehousews.softeng.sapienza.it/", name = "getBookSoapResponse")
+    public JAXBElement<GetBookSoapResponse> createGetBookSoapResponse(GetBookSoapResponse value) {
+        return new JAXBElement<GetBookSoapResponse>(_GetBookSoapResponse_QNAME, GetBookSoapResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SQLException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://warehousews.softeng.sapienza.it/", name = "SQLException")
+    public JAXBElement<SQLException> createSQLException(SQLException value) {
+        return new JAXBElement<SQLException>(_SQLException_QNAME, SQLException.class, null, value);
     }
 
 }

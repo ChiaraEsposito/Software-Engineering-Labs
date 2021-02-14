@@ -16,7 +16,7 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "WSInterface", targetNamespace = "http://wharehousews.softeng.sapienza.it/")
+@WebService(name = "WSInterface", targetNamespace = "http://warehousews.softeng.sapienza.it/")
 @XmlSeeAlso({
     ObjectFactory.class
 })
@@ -25,24 +25,20 @@ public interface WSInterface {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns soap.BookMap
+     *     returns soap.Book
+     * @throws ClassNotFoundException_Exception
+     * @throws SQLException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getBooks", targetNamespace = "http://wharehousews.softeng.sapienza.it/", className = "soap.GetBooks")
-    @ResponseWrapper(localName = "getBooksResponse", targetNamespace = "http://wharehousews.softeng.sapienza.it/", className = "soap.GetBooksResponse")
-    public BookMap getBooks();
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addBook", targetNamespace = "http://wharehousews.softeng.sapienza.it/", className = "soap.AddBook")
-    @ResponseWrapper(localName = "addBookResponse", targetNamespace = "http://wharehousews.softeng.sapienza.it/", className = "soap.AddBookResponse")
-    public void addBook(
+    @RequestWrapper(localName = "getBookSoap", targetNamespace = "http://warehousews.softeng.sapienza.it/", className = "soap.GetBookSoap")
+    @ResponseWrapper(localName = "getBookSoapResponse", targetNamespace = "http://warehousews.softeng.sapienza.it/", className = "soap.GetBookSoapResponse")
+    public Book getBookSoap(
         @WebParam(name = "arg0", targetNamespace = "")
-        Book arg0);
+        int arg0)
+        throws ClassNotFoundException_Exception, SQLException_Exception
+    ;
 
 }

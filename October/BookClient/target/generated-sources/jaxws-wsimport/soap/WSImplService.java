@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "WSImplService", targetNamespace = "http://wharehousews.softeng.sapienza.it/", wsdlLocation = "http://localhost:8080/WSInterface?wsdl")
+@WebServiceClient(name = "WSImplService", targetNamespace = "http://warehousews.softeng.sapienza.it/", wsdlLocation = "http://localhost:8080/WSInterface?wsdl")
 public class WSImplService
     extends Service
 {
 
     private final static URL WSIMPLSERVICE_WSDL_LOCATION;
     private final static WebServiceException WSIMPLSERVICE_EXCEPTION;
-    private final static QName WSIMPLSERVICE_QNAME = new QName("http://wharehousews.softeng.sapienza.it/", "WSImplService");
+    private final static QName WSIMPLSERVICE_QNAME = new QName("http://warehousews.softeng.sapienza.it/", "WSImplService");
 
     static {
         URL url = null;
@@ -69,7 +69,7 @@ public class WSImplService
      */
     @WebEndpoint(name = "WSImplPort")
     public WSInterface getWSImplPort() {
-        return super.getPort(new QName("http://wharehousews.softeng.sapienza.it/", "WSImplPort"), WSInterface.class);
+        return super.getPort(new QName("http://warehousews.softeng.sapienza.it/", "WSImplPort"), WSInterface.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class WSImplService
      */
     @WebEndpoint(name = "WSImplPort")
     public WSInterface getWSImplPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://wharehousews.softeng.sapienza.it/", "WSImplPort"), WSInterface.class, features);
+        return super.getPort(new QName("http://warehousews.softeng.sapienza.it/", "WSImplPort"), WSInterface.class, features);
     }
 
     private static URL __getWsdlLocation() {

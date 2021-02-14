@@ -16,7 +16,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.List;
 import java.util.Map;
-import soap.*;
+import soap.ClassNotFoundException_Exception;
+import soap.SQLException_Exception;
 
 /**
  *
@@ -27,21 +28,8 @@ public class Client {
     private static final String BASE_URL = "http://localhost:8081/books/";
     private static CloseableHttpClient client;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException_Exception, SQLException_Exception {
         client = HttpClients.createDefault();
-        
-        soap.Book b1 = new soap.Book();
-        soap.Book b2 = new soap.Book();
-        b1.setId("1");
-        b1.setPrice("13");
-        b2.setId("2");
-        b2.setPrice("12");
-        
-        addBook(b1);
-        addBook(b2);
-        
-
-        // Example GET
         
         //An Object mapper allows to deserialize a JSON
         ObjectMapper mapper = new ObjectMapper();
@@ -69,8 +57,38 @@ public class Client {
         
                 Book b = (Book)mapper.readValue(input, Book.class);
                 
+                //SOAP
+                soap.Book b1 = getBookSoap(Integer.parseInt(inserted));
         
-                System.out.println(b +"\n\n");
+                System.out.println(b);
+                System.out.println("Price: " + b1.getPrice());
+                
+                /*System.out.println("Sellers and dates: ");
+                for (int j=0; j< b1.getSellers().size(); j++) {
+                    System.out.println(b1.getSellers().get(j) + " " + b1.getDates().get(j));
+                  
+                }*/
+                
+                System.out.println("Sellers: ");
+                for (String s : b1.getSellers()) {
+                    System.out.print(s + "; ");
+                }
+                
+                System.out.println("\n\nTo see the delivery date, enter the name of a seller.\n Otherwise enter 'no'");
+                String answer = scan.next();
+                
+                if(!answer.equals("no")) {
+                    for (int j=0; j< b1.getSellers().size(); j++) {
+                        if (b1.getSellers().get(j).equals(answer)) {
+                            System.out.println(b1.getDates().get(j)+"\n\n");
+                            break;
+                        }
+                            
+                        }
+                }
+                
+                
+
             }
             
             else {
@@ -84,33 +102,23 @@ public class Client {
                                        
                     System.out.println(book + "\n\n");
                 }
-                
-                List<BookEntry> books = Client.getBooks().getEntry();
-                for (BookEntry book : books) {
-                    System.out.println("Price: " + book.getBook().getPrice());
-                }
-                
-                
+               
                 
             }
         }
         
         System.out.println("Thanks! Bye. \n\n");
    
-    }
+    }   
+       
+    private static soap.Book getBookSoap(int i) throws ClassNotFoundException_Exception, SQLException_Exception{
+    soap.WSImplService service = new soap.WSImplService();
+    soap.WSInterface port = service.getWSImplPort();
     
-    private static BookMap getBooks() {
-        soap.WSImplService service = new soap.WSImplService();
-        soap.WSInterface port = service.getWSImplPort();
-        return port.getBooks();
+    // TODO process result here
+    soap.Book result = port.getBookSoap(i);
+        return result;
     }
-    
-    private static void addBook (soap.Book arg0) {
-        soap.WSImplService service = new soap.WSImplService();
-        soap.WSInterface port = service.getWSImplPort();
-        port.addBook(arg0);
-    }
-    
-   
+
 
 }
